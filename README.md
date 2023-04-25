@@ -32,6 +32,11 @@ To do:
 - Add support for multiple upstreams (Matrix Switch Devices)
 
 ## To use
+
+clone the repo
+
+cd MatrixCMD
+
 python3.9 -m venv venv
 
 . venv/bin/activate
