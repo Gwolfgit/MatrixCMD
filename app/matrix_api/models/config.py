@@ -14,6 +14,8 @@ class Settings(BaseSettings):
     signup_enabled: bool
     uvicorn_error_log_disabled: bool
     uvicorn_access_log_disabled: bool
+    proxy_log_commands: bool
+    proxy_log_responses: bool
 
     class Config:
         env_file = ".env"

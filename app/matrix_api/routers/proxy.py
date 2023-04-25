@@ -60,11 +60,12 @@ async def proxy_cgi(method: str, request: Request, cmd: Optional[str] = None, _:
                 f"hex({hex}), dec({dec}) #{cmd_count}"
             )
 
-            with open(os.path.join(BASE_DIR, 'output', 'commands.txt'), 'a') as f1:
-                f1.write(
-                    f"{cmd_name} {cmd_parameters} "
-                    f"hex({hex}), dec({dec}) #{cmd_count}\n"
-                )
+            if settings.proxy_log_commands:
+                with open(os.path.join(BASE_DIR, 'output', 'commands.txt'), 'a') as f1:
+                    f1.write(
+                        f"{cmd_name} {cmd_parameters} "
+                        f"hex({hex}), dec({dec}) #{cmd_count}\n"
+                    )
         else:
             upstream_url = f"{settings.upstream}/cgi-bin/query?_={_}"
 
@@ -78,11 +79,13 @@ async def proxy_cgi(method: str, request: Request, cmd: Optional[str] = None, _:
                     f"RESPONSE {cmd_name} {cmd_parameters} "
                     f"hex({hex}), dec({dec}) #{cmd_count}"
                 )
-                with open(os.path.join(BASE_DIR, 'output', 'responses.txt'), 'a') as f2:
-                    f2.write(
-                        f"{cmd_name} {cmd_parameters} "
-                        f"hex({hex}), dec({dec}) #{cmd_count}\n"
-                    )
+
+                if settings.proxy_log_responses:
+                    with open(os.path.join(BASE_DIR, 'output', 'responses.txt'), 'a') as f2:
+                        f2.write(
+                            f"{cmd_name} {cmd_parameters} "
+                            f"hex({hex}), dec({dec}) #{cmd_count}\n"
+                        )
             return Response(content=response.content, status_code=response.status_code, headers=response.headers)
     except Exception as exc:
         traceback.print_exc()
@@ -119,6 +122,3 @@ async def proxy_root(request: Request):
         with open(static_file_path) as idx:
             content = idx.read()
         return Response(content=content, status_code=response.status_code, headers=response.headers)
-
-
-
