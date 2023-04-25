@@ -34,6 +34,6 @@ uvicorn_error.disabled = settings.uvicorn_error_log_disabled
 uvicorn_access = logging.getLogger("uvicorn.access")
 uvicorn_access.disabled = settings.uvicorn_access_log_disabled
 
-app.include_router(proxy.router)
+app.include_router(proxy.router, include_in_schema=False)
 # app.include_router(auth.router)
 app.include_router(matrix.router)

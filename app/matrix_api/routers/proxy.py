@@ -19,13 +19,13 @@ INTERCEPT_HTML = False
 
 
 @router.get("/favicon.ico")
-async def proxy_favicon(request: Request, response_class=FileResponse):
+async def proxy_favicon():
     return FileResponse(os.path.join(BASE_DIR, 'proxy_data', 'favicon.ico'))
 
 
 @router.get("/css/{static_file}")
 @router.get("/js/{static_file}")
-async def proxy_static(static_file: str, request: Request, response_class=FileResponse):
+async def proxy_static(static_file: str, request: Request):
 
     static_file_path = os.path.join(BASE_DIR, 'proxy_data', static_file)
 

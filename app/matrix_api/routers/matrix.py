@@ -10,9 +10,7 @@ matrix_http = HttpRequest()
 
 
 @router.post("/set_dhcp")
-async def set_dhcp(request: Request):
-    values = await request.json()
-    toggle = values.get('toggle', '')
+async def set_dhcp(toggle: int, request: Request):
     dev_resp = matrix_http.send_command(mhex.set_dhcp(toggle))
     return JSONResponse({"response": dev_resp, "status": "success"})
 
@@ -36,10 +34,8 @@ async def get_hdmi_status():
 
 
 @router.post("/switch_hdmi")
-async def switch_hdmi(request: Request):
+async def switch_hdmi(output: int, hinput: int, request: Request):
     values = await request.json()
-    output = values.get('value1', '')
-    hinput = values.get('value2', '')
     dev_resp = matrix_http.send_command(mhex.switch_hdmi(output, hinput))
     return JSONResponse({"response": dev_resp, "status": "success"})
 
@@ -57,12 +53,7 @@ async def get_network():
 
 
 @router.post("/set_gateway")
-async def set_gateway(request: Request):
-    octs = await request.json()
-    oct1 = octs.get('oct1', '')
-    oct2 = octs.get('oct2', '')
-    oct3 = octs.get('oct3', '')
-    oct4 = octs.get('oct4', '')
+async def set_gateway(oct1: int, oct2: int, oct3: int, oct4: int):
     dev_resp = matrix_http.send_command(mhex.set_gateway(oct1, oct2, oct3, oct4))
     return JSONResponse({"response": dev_resp, "status": "success"})
 
@@ -74,12 +65,7 @@ async def get_address():
 
 
 @router.post("/set_address")
-async def set_address(request: Request):
-    octs = await request.json()
-    oct1 = octs.get('oct1', '')
-    oct2 = octs.get('oct2', '')
-    oct3 = octs.get('oct3', '')
-    oct4 = octs.get('oct4', '')
+async def set_address(oct1: int, oct2: int, oct3: int, oct4: int):
     dev_resp = matrix_http.send_command(mhex.set_address(oct1, oct2, oct3, oct4))
     return JSONResponse({"response": dev_resp, "status": "success"})
 
@@ -103,12 +89,7 @@ async def get_subnet():
 
 
 @router.post("/set_subnet")
-async def set_subnet(request: Request):
-    octs = await request.json()
-    oct1 = octs.get('oct1', '')
-    oct2 = octs.get('oct2', '')
-    oct3 = octs.get('oct3', '')
-    oct4 = octs.get('oct4', '')
+async def set_subnet(oct1: int, oct2: int, oct3: int, oct4: int):
     dev_resp = matrix_http.send_command(mhex.set_subnet(oct1, oct2, oct3, oct4))
     return JSONResponse({"response": dev_resp, "status": "success"})
 
@@ -120,9 +101,7 @@ async def get_edid_all():
 
 
 @router.post("/get_edid_one")
-async def get_edid_one(request: Request):
-    values = await request.json()
-    value = values.get('value', '')
+async def get_edid_one(value: int, request: Request):
     dev_resp = matrix_http.send_command(mhex.get_edid_one(value))
     return JSONResponse({"response": dev_resp, "status": "success"})
 
@@ -134,9 +113,7 @@ async def get_audio():
 
 
 @router.post("/set_audio")
-async def set_audio(request: Request):
-    values = await request.json()
-    value = values.get('value', '')
+async def set_audio(value: int, request: Request):
     dev_resp = matrix_http.send_command(mhex.set_audio(value))
     return JSONResponse({"response": dev_resp, "status": "success"})
 
