@@ -17,7 +17,7 @@ MatrixHexCommands model.
 
 The debugging proxy will download the device's static files to the local directory app/matrix_api/proxy_data if you visit the web UI through the proxy.
 Once those files are present, the proxy will intercept them and return the local file instead of the file from the device. This is useful if you want 
-to muck around and change things... ;)
+to muck around and change things...
 
 
 This code is not production ready, but it should work(ish).
