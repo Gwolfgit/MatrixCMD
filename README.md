@@ -19,6 +19,8 @@ The debugging proxy will download the device's static files to the local directo
 Once those files are present, the proxy will intercept them and return the local file instead of the file from the device. This is useful if you want 
 to muck around and change things...
 
+The web ui proxy is accessible at /ui
+
 
 This code is not production ready, but it should work(ish).
 

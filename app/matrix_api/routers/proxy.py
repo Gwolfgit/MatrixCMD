@@ -92,7 +92,7 @@ async def proxy_cgi(method: str, request: Request, cmd: Optional[str] = None, _:
         raise HTTPException(status_code=500, detail="Upstream service error") from exc
 
 
-@router.get("/")
+@router.get("/ui")
 async def proxy_root(request: Request):
 
     if not INTERCEPT_HTML:
