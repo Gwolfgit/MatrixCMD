@@ -24,4 +24,5 @@ To do:
 - Finish Docker implementation
 - Finish custom 'saved configurations' API option
 - Finish OAuth2 implementation
+- Use pydantic parameter models for command parameters
 - Remove deprecated code
