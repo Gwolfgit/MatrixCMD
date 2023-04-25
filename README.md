@@ -30,3 +30,15 @@ To do:
 - Use pydantic parameter models for command parameters
 - Remove deprecated code
 - Add support for multiple upstreams (Matrix Switch Devices)
+
+## To use
+python3.9 -m venv venv
+
+. venv/bin/activate
+
+pip install -r requirements.txt
+
+mv .env.example to .env and set appropriate values
+
+uvicorn app.main:app
+
