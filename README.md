@@ -33,7 +33,7 @@ The web ui proxy is accessible at /ui and as usual, the OpenAPI documentation is
 
 ### Notes
 
-This code is not production ready, but it should work(ish).
+This code is not production ready (yet), but it should be usable. This application is GPL and provides no warranty.
 
 To do:
 - Finish reverse engineering commands
