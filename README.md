@@ -11,7 +11,9 @@ I reverse-engineered the web UI using a reverse proxy and read through the javas
 Included is the JSON API as well as the debugging proxy and the classes and models that I used for reverse engineering.
 
 The UI communicates with the device over http using strings of hex values. 
-Each command has a command type and a command index. The command types are loosely associated with the tabs presented in the UI but otherwise, 
+Each command has a command type and a command index. Commands sent to the /cgi-bin/submit endpoint do not return results. 
+Instead, another request to /cgi-bin/query is executed immediately after each command to return the result. This API eliminates 
+the need to make two calls against the device endpoints and will return the appropriate results asynchronously. The command types are loosely associated with the tabs presented in the UI but otherwise, 
 I don't completely understand their usage. Therefore, each command is represented by a Tuple containing two integers (the type and index) in the 
 MatrixHexCommands model. 
 
