@@ -16,7 +16,7 @@ Included is the API as well as the debugging proxy and the classes and models th
 
 ## Details
 
-The UI communicates with the device over http using strings of hex values. 
+The UI communicates with the upstream device \[unauthenticated\] over http using strings of hex values. 
 Commands sent to the device's /cgi-bin/submit endpoint do not return results. 
 Instead, another request to /cgi-bin/query is executed immediately after each command to fetch the result. 
 This API eliminates the need to make two calls against the device endpoints and will return the appropriate results for a single request asynchronously. 
