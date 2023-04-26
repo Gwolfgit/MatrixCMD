@@ -8,7 +8,7 @@ Link: https://www.monoprice.com/product?p_id=39665
 
 ![alt text](https://github.com/Gwolfgit/MatrixCMD/blob/master/fastapidocs.png?raw=true)
 
-The IP control provided by the Blackbird Pro doesn't have a usable API despite the company advertising IP control. 
+The Blackbird Pro doesn't have a usable API despite the company advertising IP control. 
 I reverse-engineered the web UI using a debugging proxy in order to produce this API. 
 Included is the API as well as the debugging proxy and the classes and models that I used for reverse engineering.
 
