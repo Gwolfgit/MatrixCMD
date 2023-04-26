@@ -21,9 +21,8 @@ I don't completely understand their usage. Therefore, each command is represente
 MatrixHexCommands model. 
 
 The debugging proxy will download the device's static files to the local directory app/matrix_api/proxy_data if you visit the web UI through the proxy.
-The files "favicon.ico" and "normalize.min.css.map" are provided in the repo as they are not provided by the device.
 Once those files are present, the proxy will intercept them and return the local file instead of the file from the device. This is useful if you want 
-to muck around and change things...
+to muck around and change things. The files "favicon.ico" and "normalize.min.css.map" are provided in the repo as they are not provided by the device.
 
 The web ui proxy is accessible at /ui and as usual, the OpenAPI documentation is available at /docs and /redoc.
 
