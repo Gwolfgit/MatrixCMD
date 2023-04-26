@@ -8,9 +8,13 @@ Link: https://www.monoprice.com/product?p_id=39665
 
 ![alt text](https://github.com/Gwolfgit/MatrixCMD/blob/master/fastapidocs.png?raw=true)
 
+## Synopsis
+
 The Blackbird Pro doesn't have a usable API despite the company advertising IP control. 
 I reverse-engineered the web UI using a debugging proxy in order to produce this API. 
 Included is the API as well as the debugging proxy and the classes and models that I used for reverse engineering.
+
+## Details
 
 The UI communicates with the device over http using strings of hex values. 
 Commands sent to the device's /cgi-bin/submit endpoint do not return results. 
@@ -26,6 +30,7 @@ to muck around and change things. The files "favicon.ico" and "normalize.min.css
 
 The web ui proxy is accessible at /ui and as usual, the OpenAPI documentation is available at /docs and /redoc.
 
+### Notes
 
 This code is not production ready, but it should work(ish).
 
